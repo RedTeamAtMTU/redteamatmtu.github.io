@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{{ site.LanguageCode | default "en-us" }}">
+
+{{ partial "site_head.html" . }}
+
+<body id="top" data-spy="scroll" data-target="{{ if or .IsHome (eq .Type "widget_page") }}#navbar-main{{else}}#TableOfContents{{end}}" data-offset="71" {{ if not (.Scratch.Get "light") }}class="dark"{{end}}>
+
+  <!-- Prevent flash of white when refreshing the page on dark mode -->
+  <script>
+    // Check localStorage first (user override)
+    const storedDarkMode = localStorage.getItem('dark_mode');
+
+    // If no stored preference, use browser preference
+    if (storedDarkMode === null) {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.body.classList.toggle('dark', prefersDark);
+    } else {
+      // Use stored preference
+      document.body.classList.toggle('dark', storedDarkMode === '1');
+    }
+  </script>
+
+  {{ partial "search" . }}
+
+  {{ partial "navbar.html" . }}
+
+  {{ block "main" . }}{{ end }}
+
+  {{ partial "site_js.html" . }}
+
+  {{ if .IsHome }}
+  <div class="container">
+    {{ partial "site_footer.html" . }}
+  </div>
+  {{ end }}
+
+  {{/* {{ partial "citation.html" . }} */}}
+
+</body>
+</html>

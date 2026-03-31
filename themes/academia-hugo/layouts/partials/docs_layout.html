@@ -1,0 +1,87 @@
+{{ $current_page := . }}
+
+<div class="container-fluid docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+      {{/* {{ partial "docs_sidebar.html" . }} */}}
+    </div>
+
+    {{ if .Params.toc }}
+    <div class="d-none d-xl-block col-xl-2 docs-toc">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">{{ i18n "on_this_page" }}</a></li>
+      </ul>
+
+      {{ .TableOfContents }}
+
+      {{ partial "docs_toc_foot.html" . }}
+    </div>
+    {{ end }}
+
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+      <article class="article" itemscope itemtype="http://schema.org/Article">
+
+        {{ if site.Params.docs_section_pager }}
+
+          <div class="docs-navigation d-flex justify-content-between align-items-center my-4">
+            {{ with .PrevInSection }}
+              <a href="{{ .RelPermalink }}" class="btn btn-outline-primary btn-lg page-scroll">
+                <i class="fas fa-arrow-left"></i>
+              </a>
+            {{ else }}
+              <div style="width: 60px;"></div> <!-- Spacer when no previous page -->
+            {{ end }}
+
+            {{ with .NextInSection }}
+              <a href="{{ .RelPermalink }}" class="btn btn-outline-primary btn-lg page-scroll">
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            {{ else }}
+              <div style="width: 60px;"></div> <!-- Spacer when no next page -->
+            {{ end }}
+          </div>
+
+        {{ end }}
+
+        <div class="docs-article-container">
+          <h1 itemprop="name">{{ .Title }}</h1>
+          <div class="d-flex align-items-center">
+            {{ if .Date }}
+            <p itemprop="date" class="text-muted mb-0 mr-2">{{ $.Date.Format site.Params.date_format }}</p>
+            {{ end }}
+
+            {{ with .Params.buttons }}
+            {{ $hasButtons := false }}
+            {{ range . }}
+              {{ if or .text .icon .link }}
+                {{ $hasButtons = true }}
+              {{ end }}
+            {{ end }}
+            {{ if $hasButtons }}
+              <div class="btn-links d-inline-flex">
+                {{ range . }}
+                  {{ if or .text .icon .link }}
+                    {{ $icon := .icon }}
+                    <a class="btn btn-outline-primary btn-sm my-1 mr-1" href="{{ .link | safeURL }}" target="_blank" rel="noopener">
+                      {{ if $icon }}<i class="{{ $icon }} mr-1"></i>{{ end }}
+                      {{ .text | safeHTML }}
+                    </a>
+                  {{ end }}
+                {{ end }}
+              </div>
+            {{ end }}
+            {{ end }}
+          </div>
+
+          <div class="article-style" itemprop="articleBody" style="margin-top: 1rem;">
+            {{ .Content }}
+          </div>
+
+      </article>
+
+      {{/* {{ partial "site_footer.html" . }} */}}
+
+    </main>
+  </div>
+</div>

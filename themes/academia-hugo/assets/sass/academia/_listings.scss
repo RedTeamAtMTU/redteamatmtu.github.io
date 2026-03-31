@@ -1,0 +1,103 @@
+/*************************************************
+ *  List items
+ **************************************************/
+
+.view-list-item {
+  margin-bottom: 1rem;
+}
+
+.pub-icon {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 0.81em;
+  padding-right: 6px;
+}
+
+.view-list-item .article-metadata {
+  margin-bottom: 0;
+}
+
+.pub-list-item .pub-abstract {
+  font-size: 1rem;
+}
+
+.pub-list-item .btn-links {
+  padding-top: 10px;
+}
+
+/* Mobile-specific styles */
+/* imported from list.html */
+@media (max-width: 767px) {
+  .list-item {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .container,
+  .container > .row,
+  .col-lg-12.offset-lg-0,
+  .universal-wrapper {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+
+  .date-container {
+    width: auto !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+  }
+
+  .list-title {
+    margin-left: 0 !important;
+  }
+
+  h2.list-title {
+    font-size: 1rem; /* Optional: scale down for mobile readability */
+  }
+}
+
+/*************************************************
+ *  Compact (stream) list view
+ **************************************************/
+
+.media.stream-item {
+  margin-bottom: 2rem;
+}
+
+.media.stream-item .article-title,
+.card-simple .article-title {
+  font-size: 1.2rem;
+}
+
+.media.stream-item .article-style,
+.card-simple .article-style {
+  margin-top: 2px;
+  font-size: 0.8rem;
+}
+
+.media.stream-item .stream-meta {
+  margin-top: 12px;
+}
+
+.media.stream-item img {
+  max-width: 150px;
+  height: auto;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+  .media.stream-item img {
+    max-width: 80px;
+  }
+}
+
+/* Make dot that separates Date/Title in meeting minutes listing non-selectable */
+.dot-separator {
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;    /* IE/Edge */
+}

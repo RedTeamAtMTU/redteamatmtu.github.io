@@ -1,0 +1,55 @@
+{{ $ := .root }}
+{{ $page := .page }}
+<div class="row officers justify-content-center">
+  {{ with $page.Title }}
+  <div class="col-12 section-heading">
+    <h1>{{ . | markdownify | emojify }}</h1>
+    {{ if $page.Params.subtitle }}<p>{{ $page.Params.subtitle | markdownify | emojify }}</p>{{ end }}
+  </div>
+  {{ end }}
+  {{ with $page.Content }}
+  <div class="col-12">
+    {{ . | markdownify }}
+  </div>
+  {{ end }}
+  {{ range $page.Params.officers }}
+  <div class="col-lg-2 col-sm-6 mb-1 mb-lg-1 px-1" style="max-width: 250px; width: 100%;">
+    <div class="position-relative py-3 shadow officers-margin text-center">
+      {{ with .username }}
+        <a href="/officers/{{ . | safeHTML }}/" style="width: 25px; height: 25px; position: absolute; top: 10px; right: 10px; z-index: 2; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+        <i class="fas fa-share-square"></i>
+      </a>
+      {{ end }}
+      {{ with .headshot }}
+      <div class="officer-headshot mb-2 mx-auto d-flex justify-content-center" style="position: relative; z-index: 1;">
+        <img src="/img/{{ . | safeHTML }}" alt="Headshot" class="rounded-circle img-fluid" style="width: 120px; height: 120px; object-fit: cover;">
+      </div>
+      {{ end }}
+      <h4 class="mb-1">{{ .name | markdownify | emojify }}</h4>
+      <p class="text-muted mb-0">{{ .position | markdownify | emojify }}</p>
+    </div>
+  </div>
+  {{ end }}
+</div>
+{{ with $page.Params.advisor }}
+<div class="row officers justify-content-center">
+  <div class="col-12 text-center mb-3">
+    <h2>Faculty Advisor</h2>
+  </div>
+  <div class="col-lg-3 col-sm-6 mb-1 mb-lg-1 px-1" style="max-width: 250px; width: 100%;">
+    <div class="position-relative py-3 shadow officers-margin text-center mb-n4">
+      {{ with .headshot }}
+      <div class="officer-headshot mb-2 mx-auto d-flex justify-content-center" style="position: relative; z-index: 1;">
+        <img src="/img/{{ . | safeHTML }}" alt="Headshot" class="rounded-circle img-fluid" style="width: 120px; height: 120px; object-fit: cover;">
+      </div>
+      {{ end }}
+      <h4 class="mb-1">
+        {{ if .url }}<a href="{{ .url | safeHTML }}" style="text-decoration: none;">{{ end }}
+        {{ .name | markdownify | emojify }}
+        {{ if .url }}</a>{{ end }}
+      </h4>
+      <p class="text-muted mb-0">{{ .position | markdownify | emojify }}</p>
+    </div>
+  </div>
+</div>
+{{ end }}

@@ -1,0 +1,65 @@
+<footer class="site-footer">
+  <div class="container">
+    <!-- Logo and Network Icons Row -->
+    <div class="row align-items-center mb-0">
+      <div class="col-md-6">
+        {{ with .Site.Params.mtu_logos }}
+          {{ if and .light .dark }}
+            {{ with .url }}<a href="{{ . | safeURL }}" style="display: inline-block;">{{ end }}
+            <div class="footer-logo">
+              <img src="{{ printf "img/%s" .dark | absURL }}" alt="MTU Logo" style="max-height: 75px; width: auto;" class="logo-img light-logo">
+              <img src="{{ printf "img/%s" .light | absURL }}" alt="MTU Logo" style="max-height: 75px; width: auto; display: none;" class="logo-img dark-logo">
+            </div>
+            {{ if .url }}</a>{{ end }}
+          {{ end }}
+        {{ end }}
+      </div>
+      <div class="col-md-6">
+        <ul class="list-inline network-icon text-left text-md-right mb-0">
+          {{/* Contact links. */}}
+          {{ range site.Params.contact_links }}
+          {{ $pack := or .icon_pack "fas" }}
+          {{ $pack_prefix := $pack }}
+          {{ if in (slice "fab" "fas" "far" "fal") $pack }}
+          {{ $pack_prefix = "fa" }}
+          {{ end }}
+          {{ $link := .link }}
+          {{ $scheme := (urls.Parse $link).Scheme }}
+          {{ $target := "" }}
+          {{ if not $scheme }}
+          {{ $link = .link | relLangURL }}
+          {{ else if in (slice "http" "https") $scheme }}
+          {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+          {{ end }}
+          <li class="list-inline-item">
+            <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} title="{{.name}}" style="color: inherit;"><i class="{{ $pack }} {{ $pack_prefix }}-{{ .icon }}" aria-hidden="true"></i></a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+    <!-- Text Links Row -->
+    <div class="row">
+      <div class="col-md-6">
+        {{ with .Site.Params.mtu_eoe_url }}
+          <p class="powered-by mt-0 mb-0">
+            <a href="{{ . | safeHTML }}" style="color: inherit; text-decoration: underline;">EOE Statement</a>
+          </p>
+        {{ end }}
+        {{ with site.GetPage "privacy.md" }}
+        <p class="powered-by mt-0 mb-0">
+          {{ printf "<a href=\"%s\">%s</a>" .RelPermalink .Title | safeHTML }}
+        </p>
+        {{ end }}
+        {{ with site.Copyright }}{{ replace . "{year}" now.Year | markdownify}} &middot; {{ end }}
+      </div>
+      <div class="col-md-6 text-right">
+        {{ with .Site.Params.template_url }}
+        <p class="powered-by mt-0 mb-0">
+          <a href="{{ . | safeHTML }}" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">Site Template</a>
+        </p>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</footer>

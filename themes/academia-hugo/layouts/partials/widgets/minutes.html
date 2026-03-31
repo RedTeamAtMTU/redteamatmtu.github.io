@@ -1,0 +1,77 @@
+{{/* Minutes Widget */}}
+
+{{/* Initialise */}}
+{{ $ := .root }}
+{{ $st := .page }}
+{{ $items_type := "minutes" }} {{/* Hardcoded to minutes since that's our content type */}}
+{{ $items_offset := $st.Params.content.offset | default 0 }}
+{{ $items_count := $st.Params.content.count | default 5 }}
+{{ $items_sort := $st.Params.content.order | default "desc" }}
+
+{{/* Query */}}
+{{ $query := where site.RegularPages "Section" $items_type }}
+{{ $archive_page := site.GetPage "Section" $items_type }}
+
+{{ $count := len $query }}
+
+{{/* Sort */}}
+{{ $query = sort $query .Date $items_sort }}
+
+{{/* Offset and Limit */}}
+{{ if gt $items_offset 0 }}
+  {{ $query = first $items_count (after $items_offset $query) }}
+{{ else }}
+  {{ $query = first $items_count $query }}
+{{ end }}
+
+{{/* Localisation */}}
+{{ $i18n := "more_pages" }} {{/* Default to "more_pages" since we're showing minutes */}}
+
+<div class="row">
+  <div class="col-12 section-heading text-center">
+    <h1>{{ with $st.Title }}{{ . | markdownify | emojify }}{{ end }}</h1>
+    {{ with $st.Params.subtitle }}<p>{{ . | markdownify | emojify }}</p>{{ end }}
+    {{ with $st.Content }}<p>{{ . }}</p>{{ end }}
+  </div>
+  <div class="col-12">
+    <div class="row justify-content-center">
+      {{ range $post := $query }}
+        {{ if eq $st.Params.design.view 1 }}
+        <div class="col-lg-10 offset-lg-2">
+            <div class="list-item" style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+              <!-- Date -->
+              {{ if .Params.date }}
+              <div class="date-container" style="width: 130px; text-align: right; margin-right: 10px;">
+                <span class="text-muted" style="font-size: 0.7em;">
+                    {{ .Params.date.Format site.Params.date_format }}
+                </span>
+              </div>
+              {{ end }}
+              <!-- Middle dot with consistent spacing -->
+              <span class="dot-separator text-muted" style="font-size: 1.25em; width: 10px; text-align: center;">&middot;</span>
+              <!-- Title -->
+              <p class="list-title" style="margin: 0 0 0 10px; display: flex; align-items: center;">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              </p>
+            </div>
+         </div>
+        {{ else if eq $st.Params.design.view 3 }}
+          <div class="col-lg-4 col-md-6 mb-4">
+            {{ partial "li_card" . }}
+          </div>
+        {{ else }}
+          {{ partial "li_compact" . }}
+        {{ end }}
+      {{ end }}
+
+      {{ if gt $count $items_count }}
+        <div class="see-all">
+          <a href="{{ $archive_page.RelPermalink }}">
+            {{ i18n $i18n | default "See all minutes" }}
+            <i class="fas fa-angle-right"></i>
+          </a>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</div>

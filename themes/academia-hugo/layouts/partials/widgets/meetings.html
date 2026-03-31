@@ -1,0 +1,82 @@
+{{ $ := .root }}
+{{ $page := .page }}
+{{ $autolink := default true $page.Params.autolink }}
+
+<!-- Meetings widget -->
+<div class="row meetings-widget">
+  <div class="col-12 text-center section-heading">
+    <h1>{{ with $page.Title }}{{ . | markdownify }}{{ end }}</h1>
+    {{ with $page.Params.subtitle }}<p>{{ . | markdownify }}</p>{{ end }}
+  </div>
+  <div class="col-12">
+    {{ with $page.Content }}<p>{{ . | markdownify }}</p>{{ end }}
+  </div>
+  <div class="col-md-6">
+    {{ if site.Params.map }}
+    <div class="d-none">
+      <input id="map-provider" value="{{ site.Params.map }}">
+      <input id="map-lat" value="{{ site.Params.latitude }}">
+      <input id="map-lng" value="{{ site.Params.longitude }}">
+      <input id="map-dir" value="{{ site.Params.address }}">
+      <input id="map-zoom" value="{{ site.Params.zoom | default "15" }}">
+      <input id="map-api-key" value="{{ site.Params.map_api_key }}">
+    </div>
+    <div id="map" class="mb-2 mb-md-0"></div>
+    {{ end }}
+  </div>
+  <div class="col-md-6">
+    <div class="meetings-info-container">
+      {{ if and site.Params.email (not $page.Params.email_form) }}
+      <div class="meetings-info-item">
+        <i class="fas fa-envelope meetings-icon" aria-hidden="true"></i>
+        <span id="person-email" itemprop="email">
+          {{- if $autolink }}<a
+            href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a>{{ else }}{{ site.Params.email }}{{ end -}}
+        </span>
+      </div>
+      {{ end }}
+
+      {{ with site.Params.phone }}
+      <div class="meetings-info-item">
+        <i class="fas fa-phone meetings-icon" aria-hidden="true"></i>
+        <span id="person-telephone" itemprop="telephone">
+          {{- if $autolink }}<a href="tel:{{ . }}">{{ . }}</a>{{ else }}{{ . }}{{ end -}}
+        </span>
+      </div>
+      {{ end }}
+
+      {{ with site.Params.address }}
+      <div class="meetings-info-item">
+        <i class="fas fa-map-marker-alt meetings-icon" aria-hidden="true"></i>
+        <span id="person-address" itemprop="address">{{ . | markdownify | emojify }}</span>
+      </div>
+      {{ end }}
+
+      {{ with site.Params.office_hours }}
+      <div class="meetings-info-item">
+        <i class="fas fa-clock meetings-icon" aria-hidden="true"></i>
+        <span>{{ . | markdownify | emojify }}</span>
+      </div>
+      {{ end }}
+
+      {{ with site.Params.calendar_url }}
+      <div class="meetings-info-item">
+        <i class="fas fa-calendar meetings-icon" aria-hidden="true"></i>
+        <a href="{{ . }}" target="_blank" rel="noopener">Google Calendar Event</a>
+      </div>
+      {{ end }}
+    </div>
+
+    {{ if site.Params.countdown }}
+    <div class="d-none">
+      <input id="upcoming-meetings" value="{{ delimit $page.Params.upcoming_meetings "," | safeHTMLAttr }}">
+      <input id="meeting-time" value="{{ $page.Params.meeting_time }}">
+      <input id="meeting-length" value="{{ default 60 $page.Params.meeting_length }}">
+    </div>
+
+    <div id="meeting-countdown" style="margin-top: 15px;">
+      <div id="countdown-timer" style="font-size: 0.9em;"></div>
+    </div>
+    {{ end }}
+  </div>
+</div>

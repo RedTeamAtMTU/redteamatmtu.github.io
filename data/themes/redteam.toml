@@ -1,0 +1,29 @@
+# Theme metadata
+name = "RedTeam"
+
+# Is theme light or dark?
+#light = false # dark mode all the way!
+light = true
+
+# Primary
+#primary = "#760000" # RedTeam "Red" from "TEAM" letters
+#primary = "#a13737" # RedTeam "Red" from "RED" letters
+#primary = "#ff3860" # strawberry
+#primary = "#e01b35" # custom, very red
+primary = "#d92736" # less vibrant red
+
+# Menu
+#menu_primary = "#760000" # TEAM
+#menu_primary = "#a13737" # RED
+#menu_primary = "#e01b35" # custom, very red
+#menu_primary = "#d92736" # less vibrant red
+menu_primary = "#fff"
+menu_text = "#313131"
+#menu_text_active = "rgb(208, 255, 56)" # old Strawberry color
+menu_text_active = "#d92736"
+#menu_text_active = "#fff"
+menu_title = "#fff"
+
+# Home sections
+home_section_odd = "#fff"
+home_section_even = "#fafafa"

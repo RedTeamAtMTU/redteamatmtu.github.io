@@ -1,0 +1,33 @@
+{{- define "main" -}}
+{{/* {{ partial "page_header.html" . }} */}}
+{{ partial "page_header_list.html" . }}
+<div class="universal-wrapper" style="line-height: 1.5;">
+  {{ with .Content }}
+  <div class="article-style" itemprop="articleBody">{{ . }}</div>
+  {{ end }}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 offset-lg-0">  <!-- Changed offset from 1 to 0 and increased column width -->
+        {{ range .Data.Pages.ByDate.Reverse }}
+        <div class="list-item" style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+          <!-- Date -->
+          {{ if .Params.date }}
+          <div class="date-container" style="width: 120px; text-align: right; margin-right: 5px;">  <!-- Reduced width and margin -->
+            <span class="text-muted" style="font-size: 0.9em;">
+                {{ .Params.date.Format site.Params.date_format }}
+            </span>
+          </div>
+          {{ end }}
+          <!-- Middle dot -->
+          <span class="dot-separator text-muted" style="font-size: 1.75em; width: 15px; text-align: center;">&middot;</span>  <!-- Reduced width -->
+          <!-- Title -->
+          <h2 class="list-title" style="margin: 0 0 0 5px; display: flex; align-items: center;">  <!-- Reduced left margin -->
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </h2>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>
+{{- end -}}
