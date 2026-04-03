@@ -7,8 +7,8 @@
           {{ if and .light .dark }}
             {{ with .url }}<a href="{{ . | safeURL }}" style="display: inline-block;">{{ end }}
             <div class="footer-logo">
-              <img src="{{ printf "img/%s" .dark | absURL }}" alt="MTU Logo" style="max-height: 75px; width: auto;" class="logo-img light-logo">
-              <img src="{{ printf "img/%s" .light | absURL }}" alt="MTU Logo" style="max-height: 75px; width: auto; display: none;" class="logo-img dark-logo">
+              <img src="{{ printf "img/%s" .dark | relURL }}" alt="MTU Logo" style="max-height: 75px; width: auto;" class="logo-img light-logo">
+              <img src="{{ printf "img/%s" .light | relURL }}" alt="MTU Logo" style="max-height: 75px; width: auto; display: none;" class="logo-img dark-logo">
             </div>
             {{ if .url }}</a>{{ end }}
           {{ end }}
