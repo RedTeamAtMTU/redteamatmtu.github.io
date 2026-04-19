@@ -55,20 +55,18 @@ gallery_item:
   caption: Noah explaining the problems with hotel locks to web developers
   image: noah-explaining-saflok.jpg
 
-# ABBR doesn't show on mobile, leaving clients unable to view the full name:
-#   This year, attendees got hands-on access to poke and prod at <abbr title="Physical Access Control Systems">PACS</abbr> through our labs.
 ---
 
-Just two months after [CypherCon 8]({{< relref "/posts/cyphercon8" >}}) in Milwaukee, the RedTeam from [Michigan Tech](https://www.mtu.edu/) hosted the Access Control Village at [SecretCon 3](https://secretcon.com/) in St. Paul!
+Just two months after CypherCon 8 in Milwaukee, the RedTeam from [Michigan Tech](https://www.mtu.edu/) hosted the Access Control Village at [SecretCon 3](https://secretcon.com/) in St. Paul!
 
 SecretCon, like CypherCon, is organized by [Michael "Monster" Goetzman](https://goetzman.com/), a Midwesterner with years of experience in the security industry. There were many familiar faces from SecretCon's of years past, as the RedTeam has attended every one since its inception.
 
 This year, attendees got hands-on access to poke and prod at Physical Access Control Systems (PACS) through the RedTeam's labs.
 
-Participants ranged from Access Control Integrators who manage these products at a high-level but never understood how they operate at the low-level, to skilled hackers who have dabbled in physical security before, and all the way in-between.
+Participants ranged from Access Control Integrators who manage these products at a high-level but never understood how they operate at the low-level, to skilled hackers who have dabbled in digital security before, and all the way in-between.
 
 Many thanks to Brian from BITS, who agreed to send the RedTeam very useful gear from [Salto](https://saltosystems.com/en-us/) and other access control manufacturers so members could learn more about otherwise hard to come by systems!
 
-With this conference behind us, we're gearing up for our final conference before the 25–26 school year begins this fall: specifically [DEF&nbsp;CON&nbsp;33](https://defcon.org/)—the largest hacker conference in the world—this August! Be sure to swing by the [Physical Security Village](https://physsec.org/) at DEF&nbsp;CON and say hi, and if you're interested, don't miss [Noah]({{< relref "/officers/noahholl" >}}) and [Josh](https://shell.lug.mtu.edu/~jhstiebe/)'s DEF&nbsp;CON talk: *Hacking Hotel Locks; The Saflok Vulnerabilities Expanded*.
+With this conference behind us, we're gearing up for our final conference before the 25–26 school year begins this fall: specifically [DEF&nbsp;CON&nbsp;33](https://defcon.org/)—the largest hacker conference in the world—this August! Be sure to swing by the PSV at DEF&nbsp;CON and say hi, and if you're interested, don't miss [Noah]({{< relref "/officers/noahholl" >}}) and [Josh](https://shell.lug.mtu.edu/~jhstiebe/)'s DEF&nbsp;CON talk: *Hacking Hotel Locks; The Saflok Vulnerabilities Expanded*.
 
 {{< gallery >}}

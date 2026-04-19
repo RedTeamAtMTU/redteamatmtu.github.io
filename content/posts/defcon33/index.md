@@ -68,13 +68,13 @@ gallery_item:
 #   This year, attendees got hands-on access to poke and prod at <abbr title="Physical Access Control Systems">PACS</abbr> through our labs.
 ---
 
-The RedTeam just got back from [DEF CON 33](https://defcon.org/html/defcon-33/dc-33-index.html), the world's largest hacking conference, in Las Vegas earlier this August! We attended through the [Physical Security Village](https://physsec.org/) (PSV), who graciously provided the RedTeam with tickets for the event.
+The RedTeam just got back from [DEF CON 33](https://defcon.org/html/defcon-33/dc-33-index.html), the world's largest hacking conference, in Las Vegas earlier this August! We attended through the PSV, who graciously provided the RedTeam with tickets for the event.
 
 At the con, everyone from the RedTeam helped host the "Saflok Exhibit"; a booth dedicated to demonstrating how to hack hotel locks, turning a guest key (or even just access to a single lock) into the master key for the whole facility.
 
 In addition, Josh (a recent Michigan Tech alum) and [Noah]({{< relref "/officers/noahholl" >}}) gave a DEF CON talk about hacking these locks, named ["Hacking Hotel Locks; The Saflok Vulnerabilities Expanded"](https://www.youtube.com/watch?v=ZODLZuy6H4U), which, according to the organizers, was one of the most popular Creator Stage talks! (The slides can be viewed [here](https://media.defcon.org/DEF%20CON%2033/DEF%20CON%2033%20villages%20and%20creators/DEF%20CON%2033%20-%20Physical%20Security%20Village%20-%20Noah%20Holland%20%26%20Josh%20Stiebel%20-%20Hacking%20Hotel%20Locks%20-%20The%20Saflok%20Vulnerabilities%20Expanded.pdf))
 
-We also met many familiar faces! In the crowd, we spotted: [Laurie Wired](https://www.youtube.com/@lauriewired), a reverse-engineering expert from Google, [John Hammond](https://www.youtube.com/@_JohnHammond), a popular cybersecurity educator, [Michael Goetzman](https://goetzman.com/), the host of many amazing conferences in the Midwest (such as [CypherCon]({{< relref "/posts/cyphercon8" >}}) and [SecretCon]({{< relref "/posts/secretcon3" >}})), and [Deviant Ollam](https://www.youtube.com/deviantollam), the leading figure behind much of the modern Physical Security scene!
+We also met many familiar faces! In the crowd, we spotted: [Laurie Wired](https://www.youtube.com/@lauriewired), a reverse-engineering expert from Google, [John Hammond](https://www.youtube.com/@_JohnHammond), a popular cybersecurity educator, [Michael Goetzman](https://goetzman.com/), the host of many amazing conferences in the Midwest (such as CypherCon and [SecretCon]({{< relref "/posts/secretcon3" >}})), and [Deviant Ollam](https://www.youtube.com/deviantollam), the leading figure behind much of the modern Physical Security scene!
 
 We also stumbled upon Jack Bergman and Stu Kernstock, previous RedTeam presidents that were in town for BlackHat, another cybersecurity conference.
 

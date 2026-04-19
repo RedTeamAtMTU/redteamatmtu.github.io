@@ -25,7 +25,7 @@ role: "President, 2025-2026" # I think position makes more sense here than degre
 #  url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: My focus is on physical access control systems & OS security.
+bio: My focus is on access control systems & OS security.
 
 # Should the user's education and interests be displayed?
 display_education: true
@@ -84,6 +84,6 @@ social:
 #- Visitors
 ---
 
-Noah Holland is a cybersecurity undergraduate at Michigan Tech, pursuing the network & systems security concentration. Accustomed to both digital and physical security, his passions include physical access control systems, locksmithing, and operating system security.
+Noah Holland is a cybersecurity undergraduate at Michigan Tech, pursuing the network & systems security concentration. Accustomed to digital security, his passions include access control systems and operating system security.
 
 As President of the MTU RedTeam and MTU Linux Users Group, he fosters an environment for students to gain hands-on experience in cybersecurity and system administration.
