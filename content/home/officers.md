@@ -21,37 +21,34 @@ subtitle = ""
 # headshot            | path to headshot in /static/img/
 # username            | share-arrow that links to '/officers/<username>' page
 [[officers]]
-  name = "Noah Holland"
+  name = "Noah Strekow"
   position = "President"
-  headshot = "noah.jpg"
-  username = "noahholl"
-
-[[officers]]
-  name = "Ethan Norush"
-  position = "Vice President"
-  headshot = "ethan.jpg"
-  #username = "ejnorush"
+  headshot = "no-pfp.jpg"
   username = ""
 
 [[officers]]
-  name = "Dane Cucinelli"
+  name = "Tyler Ormstad"
+  position = "Vice President"
+  headshot = "tyler.jpg"
+  username = ""
+
+[[officers]]
+  name = "Evelyn Smith"
   position = "Treasurer"
-  headshot = "dane.jpg"
-  #username = "dccucine"
+  headshot = "no-pfp.jpg"
   username = ""
 
 [[officers]]
   name = "Anika Ahren"
   position = "Secretary"
   headshot = "anika.jpg"
-  #username = "aahren"
   username = ""
 
-[[officers]]
-  name = "Tyler Ormstad"
-  position = "CTF Chair"
-  headshot = "tyler.jpg"
-  #username = "tormstad"
-  username = ""
+# No CTF Chair as of yet for 26-27 academic year
+#[[officers]]
+#  name = "Tyler Ormstad"
+#  position = "CTF Chair"
+#  headshot = "tyler.jpg"
+#  username = ""
 
 +++
