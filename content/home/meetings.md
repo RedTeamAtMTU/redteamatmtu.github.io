@@ -19,7 +19,7 @@ email_form = 0
 
 # Meeting times (24-hour format)
 meeting_time = "18:00"  # 6:00 PM
-meeting_length = 50    # Duration in minutes (if blank, defaults to 60)
+meeting_length = 60    # Duration in minutes (if blank, defaults to 60)
 
 # Upcoming meeting dates
 # Format: YYYY-MM-DD
