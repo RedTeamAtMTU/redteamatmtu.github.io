@@ -69,7 +69,7 @@ address = "Kanwal and Ann Rekhi Hall, Room G05"
 
 # Office hours: use `<br>` to insert a line break, or set to "" to remove office hours
 #office_hours = "Thursdays from 6:00–6:50 PM"
-office_hours = "Thursdays from 6:00–7 PM"
+office_hours = "Thursdays from 6–7 PM"
 
 # Enter an optional link for booking appointments (e.g. calendly.com).
 #appointment_url = "" # should be fully removed from templates
