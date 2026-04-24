@@ -35,7 +35,7 @@ subtitle = ""
 [[officers]]
   name = "Evelyn Smith"
   position = "Treasurer"
-  headshot = "no-pfp.jpg"
+  headshot = "evelyn.jpg"
   username = ""
 
 [[officers]]
